@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class GridTile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GridManager gridManager;
+
+    public Vector2Int gridCoords;
+
+    private SpriteRenderer _spriteRenderer;
+
+    private Color _defaultColor;
+
+    private void Awake()
     {
-        
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _defaultColor = _spriteRenderer.color;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseOver()
     {
-        
+        gridManager.OnTileMoverEnter(this);
+        SetColor(Color.green);
+    }
+
+    private void OnMouseExit()
+    {
+        gridManager.OnTileMoverExit(this);
+        ResetColor();
+    }
+
+    private void OnMouseDown()
+    {
+        gridManager.OnTileSelected(this);
+    }
+
+    public void SetColor(Color color)
+    {
+        _spriteRenderer.color = color;
+    }
+
+    public void ResetColor()
+    {
+        _spriteRenderer.color = _defaultColor;
     }
 }
