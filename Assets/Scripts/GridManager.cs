@@ -18,6 +18,8 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI text;
 
+
+
     private void Awake()
     {
         InitGrid();
@@ -25,6 +27,7 @@ public class GridManager : MonoBehaviour
 
     public void InitGrid()
     {
+     
         for (int y = 0; y <  numRows; y++)
         {
             for (int x = 0; x < numColumns; x++) 

@@ -21,7 +21,7 @@ public class GridTile : MonoBehaviour
     private void OnMouseOver()
     {
         gridManager.OnTileMoverEnter(this);
-        SetColor(Color.green);
+        SetColor(Color.red);
     }
 
     private void OnMouseExit()
